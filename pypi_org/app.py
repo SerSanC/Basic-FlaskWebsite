@@ -1,33 +1,21 @@
 import flask
 from flask import Flask
 
-from pypi_org.infrastructure.view_modifiers import response
-
 app = Flask(__name__)
 
 
-def get_latest_packages():
-    return [
-        {'name': 'flask', 'version': '1.2.3'},
-        {'name': 'sqlalchemy', 'version': '2.2.0'},
-        {'name': 'passlib', 'version': '3.0.0'},
-    ]
+def register_blueprints():
+    from pypi_org.views import home_views
+    from pypi_org.views import package_views
 
+    app.register_blueprint(home_views.blueprint)
+    app.register_blueprint(package_views.blueprint)
 
-@app.route('/')
-@response(template_file='home/index.html')
-def index():
-    test_packages = get_latest_packages()
-    return {'packages': test_packages}
-
-
-@app.route('/about')
-@response(template_file='home/about.html')
-
-def about():
-    test_packages = get_latest_packages()
-    return {}
-
-
+"""
+El motivo de utilizar el if - else para la ejecución de inicio, es que por defecto en la configuración del PyCharm levanta un servidor, entonces si no usamos PyCharm entrará por el if
+"""
 if __name__ == '__main__':
+    register_blueprints()
     app.run(debug=True)
+else:
+    register_blueprints()
