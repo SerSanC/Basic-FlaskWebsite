@@ -5,7 +5,7 @@ fake_db = {
     },
     '/company/employees': {
         'page_title': 'Our team',
-        'page_details': 'Details about company employees...',
+        'page_details': 'Details about company employees ...',
     },
 }
 
@@ -15,6 +15,7 @@ def get_page(url: str) -> dict:
         return {}
 
     url = url.strip().lower()
-    url = '/'+url.lstrip('/')
+    url = '/' + url.lstrip('/')
+
     page = fake_db.get(url, {})
     return page

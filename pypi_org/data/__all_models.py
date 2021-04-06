@@ -1,7 +1,10 @@
+# Add all your SQLAlchemy models here.
+# This allows us to import just this file when
+# we need to preload the models and ensure they
+# are all loaded.
+
 # noinspection PyUnresolvedReferences
-from pypi_org.data.package import Package
-# noinspection PyUnresolvedReferences
-import pypi_org.data.download
+import pypi_org.data.downloads
 # noinspection PyUnresolvedReferences
 import pypi_org.data.languages
 # noinspection PyUnresolvedReferences
@@ -14,5 +17,3 @@ import pypi_org.data.package
 import pypi_org.data.releases
 # noinspection PyUnresolvedReferences
 import pypi_org.data.users
-
-

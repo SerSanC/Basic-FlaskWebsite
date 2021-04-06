@@ -1,10 +1,10 @@
-{%  extends "shared/layout.html" %}
-{%  block main_content %}
+{% extends "shared/_layout.html" %}
+{% block title %}About PyPI Demo{% endblock %}
 
-<h1>{{ page_title}}</h1>
+{% block main_content %}
+    <h1>{{ page_title }}</h1>
 
-<div>
-    {{ page_details}}
-</div>
-
+    <div>
+        {{ page_details }}
+    </div>
 {% endblock %}
